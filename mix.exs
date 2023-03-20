@@ -20,11 +20,11 @@ defmodule PhoenixSlime.Mixfile do
 
   def deps do
     [
-      {:phoenix, "~> 1.6.0"},
-      {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_view, "> 0.18.0"},
+      {:phoenix, "~> 1.7.0"},
+      {:phoenix_html, "~> 3.3"},
+      {:phoenix_live_view, "> 0.18.16"},
       {:jason, "~> 1.0", optional: true},
-      {:slime, github: "tensiondriven/slime", branch: "master"},
+      {:slime, github: "populimited/slime", branch: "master"},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev}
     ]

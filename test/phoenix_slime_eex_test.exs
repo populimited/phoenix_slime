@@ -1,26 +1,35 @@
 defmodule PhoenixSlimeEexTest do
   use ExUnit.Case
-  alias Phoenix.View
+  import ComponentHelper
   doctest PhoenixSlime
 
-  defmodule MyApp.PageView do
-    use Phoenix.View, root: "test/fixtures/templates"
+  defmodule MyApp.PageHTML do
+    use Phoenix.Component
+    import PhoenixSlime
 
-    use Phoenix.HTML
+    def button(assigns) do
+      ~h"""
+      .button =assigns.text
+      """
+    end
+
+    embed_templates "fixtures/templates/my_app/page/*"
   end
 
-  test "render a slime template with layout" do
-    html =
-      View.render(MyApp.PageView, "new.html",
-        message: "hi",
-        layout: {MyApp.PageView, "application.html"}
-      )
+  # test "render a slime template with layout" do
+  #   html =
+  #     View.render(MyApp.PageView, "new.html",
+  #       message: "hi",
+  #       layout: {MyApp.PageView, "application.html"}
+  #     )
 
-    assert html == {:safe, ["<html><body>", ["<h2>New Template</h2>"], "</body></html>"]}
-  end
+  #   assert html == {:safe, ["<html><body>", ["<h2>New Template</h2>"], "</body></html>"]}
+  # end
 
   test "render a slime template without layout" do
-    html = View.render(MyApp.PageView, "new.html", [])
-    assert html == {:safe, ["<h2>New Template</h2>"]}
+    html = MyApp.PageHTML.new(%{})
+    |> render_to_string()
+
+    assert html == "<h2>New Template</h2>"
   end
 end

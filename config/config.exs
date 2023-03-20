@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,

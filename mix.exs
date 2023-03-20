@@ -10,9 +10,14 @@ defmodule PhoenixSlime.Mixfile do
       description: "Phoenix Template Engine for Slim-like templates",
       elixir: "~> 1.4",
       package: package(),
-      version: @version
+      version: @version,
+      elixirc_paths: elixirc_paths(Mix.env()),
+      extra_applications: [:phoenix_html]
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   def application do
     [applications: [:phoenix, :slime]]
@@ -24,7 +29,7 @@ defmodule PhoenixSlime.Mixfile do
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "> 0.18.16"},
       {:jason, "~> 1.0", optional: true},
-      {:slime, github: "populimited/slime", branch: "master"},
+      {:slime, github: "populimited/slime", branch: "1.7"},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev}
     ]

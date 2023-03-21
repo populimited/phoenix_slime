@@ -11,8 +11,7 @@ defmodule PhoenixSlime.Mixfile do
       elixir: "~> 1.4",
       package: package(),
       version: @version,
-      elixirc_paths: elixirc_paths(Mix.env()),
-      extra_applications: [:phoenix_html]
+      elixirc_paths: elixirc_paths(Mix.env())
     ]
   end
 
@@ -20,7 +19,7 @@ defmodule PhoenixSlime.Mixfile do
   defp elixirc_paths(_), do: ["lib"]
 
   def application do
-    [applications: [:phoenix, :slime]]
+    [applications: [:phoenix, :phoenix_html, :phoenix_live_view, :slime]]
   end
 
   def deps do

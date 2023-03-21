@@ -28,7 +28,7 @@ defmodule PhoenixSlime.Mixfile do
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "> 0.18.16"},
       {:jason, "~> 1.0", optional: true},
-      {:slime, github: "populimited/slime", branch: "1.7"},
+      {:slime, github: "populimited/slime", branch: "master"},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev}
     ]

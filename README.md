@@ -62,6 +62,33 @@ Generated files have `.slime` extension by default. If you prefer `.slim`, you c
 config :phoenix_slime, :use_slim_extension, true
 ```
 
+## Support for Phoenix 1.7
+
+A new sigil `~h` is implemented in order to not override `~H` Phoenix 1.7 sigil.
+
+Implementation example:
+
+```slim
+import PhoenixSlime
+
+def slim_button(assigns) do
+  ~h"""
+    :greet user=@current_user.name
+      ::subtitle
+        | Hello there!
+  """
+end
+
+def button(assigns) do
+  ~H"""
+    <.greet user={@current_user.name}>
+      <:subtitle>Hello there!</:subtitle>
+    </:greet>
+  """
+end
+
+```
+
 ## License
 
 MIT license. Please see [LICENSE][license] for details.

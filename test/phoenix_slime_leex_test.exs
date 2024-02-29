@@ -6,8 +6,6 @@ defmodule PhoenixSlimeLeexTest do
 
   defmodule MyApp.PageView do
     use Phoenix.View, root: "test/fixtures/templates"
-
-    use Phoenix.HTML
   end
 
   test "render a leex template" do

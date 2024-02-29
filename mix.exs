@@ -24,9 +24,9 @@ defmodule PhoenixSlime.Mixfile do
 
   def deps do
     [
-      {:phoenix, "~> 1.7.0"},
-      {:phoenix_html, "~> 3.3"},
-      {:phoenix_live_view, "> 0.18.16"},
+      {:phoenix, "~> 1.7"},
+      {:phoenix_html, "~> 4.0"},
+      {:phoenix_live_view, "> 0.20"},
       {:jason, "~> 1.0", optional: true},
       {:slime, github: "populimited/slime", branch: "no-compile"},
       {:ex_doc, ">= 0.0.0", only: :dev},
